@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chaeyhan <chaeyhan@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 20:31:30 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/16 18:38:57 by chaeyhan         ###   ########.fr       */
+/*   Created: 2022/03/16 20:03:20 by chaeyhan          #+#    #+#             */
+/*   Updated: 2022/03/16 20:47:06 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*result;
-	size_t	i;
-	size_t	j;
+	size_t	length;
+	int		i;
 
-	result = 0;
 	i = 0;
-	if (!(*needle))
-		return ((char *)haystack);
-	while (haystack[i] && i < len)
+	result = 0;
+	if (len - start > 0)
 	{
-		j = 0;
-		if (haystack[i] == needle[j])
-		{
-			result = (char *)&haystack[i];
-			while (haystack[i] == needle[j] && i < len)
-			{
-				i++;
-				j++;
-			}
-			if (needle[j] == 0)
-				return (result);
-		}
-		else
-			i++;
+		length = ft_strlen(s);
+		if (length >= len)
+			result = (char *)malloc(len - start + 1);
+		else if (length < len)
+			result = (char *)malloc(length - start + 1);
+		if (!result)
+			return (0);
+		while (s[start] && start < len)
+			result[i++] = s[start++];
+		result[i] = 0;
 	}
+	else
+		return (0);
 	return (result);
 }
 

@@ -6,7 +6,7 @@
 /*   By: chaeyhan <chaeyhan@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:28:34 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/15 00:29:26 by chaeyhan         ###   ########.fr       */
+/*   Updated: 2022/03/16 20:47:39 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,14 @@ void    *ft_memcpy(void *dest, const void *src, size_t count);
 void    *ft_memmove(void *dst, const void *src, size_t len);
 void    *ft_memset(void *b, int c, size_t len);
 char    *ft_strchr(const char *s, int c);
-char    *ft_strdup(const char *string);
-size_t  strlcat(char *dest, const char *src, size_t size);
-size_t  strlcpy(char * dest, const char * src, size_t size);
-size_t  ft_strlen(const char *s);
+char	*ft_strdup(const char *string);
+size_t	strlcat(char *dest, const char *src, size_t size);
+size_t	strlcpy(char * dest, const char * src, size_t size);
+size_t	ft_strlen(const char *s);
 int strncmp(const char* str1, const char* str2, size_t len);
 char    *ft_strnstr(const char *haystack, const char *needle, size_t len);
 char    *ft_strrchr(const char *s, int c);
 int tolower(int ch);
 int toupper(int ch);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 #endif

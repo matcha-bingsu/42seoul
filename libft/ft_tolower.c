@@ -6,11 +6,11 @@
 /*   By: chaeyhan <chaeyhan@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 00:36:21 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/13 00:36:51 by chaeyhan         ###   ########.fr       */
+/*   Updated: 2022/03/16 19:36:27 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int tolower(int ch)
+int	ft_tolower(int ch)
 {
         if (ch >= 65 && ch <= 90)
                 ch +=32;

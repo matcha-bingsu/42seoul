@@ -1,13 +1,10 @@
 #include <stdio.h>
-#include <ctype.h>
 #include "libft.h"
 
-int main()
+int main(void)
 {
-    printf("%d\n", 9 + '0' == '9');
-    char    apple[100] = "apple\0b";
-    char    banana[100] = "apple\0a";
+    char    apple[100] = "apple";
 
-    // printf("%d", ft_memcmp(apple, banana, 7));
+    printf("%s", ft_substr(apple, 2, 7));
     return (0);
 }

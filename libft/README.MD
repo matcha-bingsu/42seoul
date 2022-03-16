@@ -13,4 +13,4 @@ ft_strlcat : man strlcat의 바탕으로 세번째 매개변수 공부
 ft_calloc:
 - calloc과 malloc의 차이점은 calloc은 메모리를 할당하고 할당 된 메모리 요소를 0으로 초기화하는 반면 malloc은 메모리를 할당하지만메모리 블록을 0으로 초기화하지는 않는다는 것입니다.
 
-Makefile : https://bowbowbow.tistory.com/12
+Makefile : https://bowbowbow.tistory.com/12, https://blog.naver.com/PostView.nhn?blogId=iixxii1234&logNo=221984687259&parentCategoryNo=&categoryNo=37&viewDate=&isShowPopularPosts=true&from=search
