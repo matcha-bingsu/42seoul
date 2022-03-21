@@ -1,32 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chaeyhan <chaeyhan@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/16 20:49:01 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/16 21:05:01 by chaeyhan         ###   ########.fr       */
+/*   Created: 2022/03/21 18:21:01 by chaeyhan          #+#    #+#             */
+/*   Updated: 2022/03/21 18:21:03 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+static int	get_len(int n)
 {
-	size_t	length;
-	size_t	i;
-	char	*result;
+	int	len;
 
-	i = -1;
+	len = 0;
+	while (n > 9)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len + 1);
+}
 
-	length = ft_strlen(s1) + ft_strlen(s2) + 1;
-	result = (char *)malloc(length);
-	if (!result)
+char	*ft_itoa(int n)
+{
+	int		i;
+	char	*re;
+
+	i = get_len(n);
+	if (n < 0)
+		i++;
+	re = (char *)malloc(i + 1);
+	if (!re)
 		return (0);
-	while (s1[++i])
-		result[i] = s1[i];
-	while (i < length)
-		result[i++] = *s2++;
-	result[i] = 0;
-	return (result);
+	if (n < 0)
+		*re = '-';
+	re[i] = 0;
+	while (n > 0)
+	{
+		re[--i] = n % 10;
+		n /= 10;
+	}
+	return (re);
 }

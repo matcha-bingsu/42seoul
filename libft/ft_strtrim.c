@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chaeyhan <chaeyhan@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/16 20:49:01 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/16 21:05:01 by chaeyhan         ###   ########.fr       */
+/*   Created: 2022/03/21 16:11:40 by chaeyhan          #+#    #+#             */
+/*   Updated: 2022/03/21 17:37:46 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char *ft_strtrim(char const *s1, char const *set)
 {
-	size_t	length;
+	char	*re;
 	size_t	i;
-	char	*result;
+	size_t	len;
 
-	i = -1;
-
-	length = ft_strlen(s1) + ft_strlen(s2) + 1;
-	result = (char *)malloc(length);
-	if (!result)
+	printf("asas");
+	i = 0;
+	if (s1[i])
+	{
+		len = ft_strlen(s1) - 1;
+		while (s1[i] && ft_strchr(set, s1[i]))
+			i++;
+		while (ft_strchr(set, s1[len]) && i < len)
+			len--;
+		re = (char *)malloc(len - i + 2);
+		if (!re)
+			return (0);
+		ft_strlcpy(re, &s1[i], len - i + 2);
+		return (re);
+	}
+	else
 		return (0);
-	while (s1[++i])
-		result[i] = s1[i];
-	while (i < length)
-		result[i++] = *s2++;
-	result[i] = 0;
-	return (result);
 }
