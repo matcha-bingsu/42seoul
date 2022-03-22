@@ -45,7 +45,10 @@ char **ft_split(char const *s, char c)
 				s++;
 			re[index] = (char *)malloc(s - from + 1);
 			if (!re[index])
+			{
+				free(re);
 				return (0);
+			}
 			i = 0;
 			while (from < s)
 				re[index][i++] = *from++;
