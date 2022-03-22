@@ -1,0 +1,13 @@
+{
+	"C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+	"makefile.launchConfigurations": [
+		{
+			"cwd": "/Users/chaeyhan/Desktop/42seoul/libft",
+			"binaryPath": "/Users/chaeyhan/Desktop/42seoul/libft/a.out",
+			"binaryArgs": []
+		}
+	],
+	"files.associations": {
+		"libft.h": "c"
+	}
+}
