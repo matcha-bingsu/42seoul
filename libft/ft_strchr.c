@@ -6,7 +6,7 @@
 /*   By: chaeyhan <chaeyhan@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 00:38:11 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/25 01:43:06 by chaeyhan         ###   ########.fr       */
+/*   Updated: 2022/03/25 21:19:28 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ char	*ft_strchr(const char *s, int c)
 		s++;
 	}
 	if (!tmp)
-		return (s);
+		return ((char *)s);
 	return (0);
 }

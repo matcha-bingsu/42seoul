@@ -6,7 +6,7 @@
 /*   By: chaeyhan <chaeyhan@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:53:46 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/25 18:19:58 by chaeyhan         ###   ########.fr       */
+/*   Updated: 2022/03/25 22:14:02 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -17,7 +17,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*next;
 
 	list = *lst;
-	while (list->next)
+	while (list)
 	{
 		del(list->content);
 		next = list->next;
