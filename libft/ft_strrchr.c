@@ -6,24 +6,24 @@
 /*   By: chaeyhan <chaeyhan@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 00:44:37 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/13 00:46:33 by chaeyhan         ###   ########.fr       */
+/*   Updated: 2022/03/25 01:44:33 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strrchr(const char *s, int c)
 {
 	char	tmp;
-	char	*ss;
 	char	*result;
 
 	tmp = (char)c;
-	ss = (char *)s;
 	result = 0;
-	while (*ss)
+	while (*s)
 	{
-		if (*ss == tmp)
-			result = ss;
-		ss++;
+		if (*s == tmp)
+			result = s;
+		s++;
 	}
+	if (!tmp)
+		return (s);
 	return (result);
 }

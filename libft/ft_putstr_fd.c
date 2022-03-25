@@ -6,13 +6,13 @@
 /*   By: chaeyhan <chaeyhan@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:04:44 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/22 20:04:45 by chaeyhan         ###   ########.fr       */
+/*   Updated: 2022/03/25 18:09:53 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void ft_putstr_fd(char *s, int fd)
 {
-	if (fd > 0)
+	if (fd >= 0)
 		write(fd, s, ft_strlen(s));
 }

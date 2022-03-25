@@ -6,18 +6,19 @@
 /*   By: chaeyhan <chaeyhan@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 23:35:16 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/16 17:56:15 by chaeyhan         ###   ########.fr       */
+/*   Updated: 2022/03/24 23:21:04 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void	*result;
+	void	*re;
 
-	result = (void *)malloc(nmemb * size);
-	if (!result)
+	if (nmemb * size <= 2147483647)
+		re = (void *)malloc(nmemb * size);
+	if (!re)
 		return (0);
-	ft_bzero(result, (nmemb * size));
-	return (0);
+	ft_bzero(re, (nmemb * size));
+	return (re);
 }

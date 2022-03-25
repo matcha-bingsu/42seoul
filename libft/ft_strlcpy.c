@@ -6,7 +6,7 @@
 /*   By: chaeyhan <chaeyhan@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 23:51:50 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/13 00:15:42 by chaeyhan         ###   ########.fr       */
+/*   Updated: 2022/03/24 23:56:37 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -20,7 +20,7 @@ size_t	ft_strlcpy(char * dest, const char * src, size_t size)
 	src_len = 0;
 	while (src[src_len])
 		src_len++;
-	while (size > 0)
+	if (size > 0)
 	{
 		while (src[i] && i + 1 < size)
 		{	

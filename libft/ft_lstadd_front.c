@@ -6,12 +6,13 @@
 /*   By: chaeyhan <chaeyhan@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:27:25 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/22 20:27:26 by chaeyhan         ###   ########.fr       */
+/*   Updated: 2022/03/25 18:25:34 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	*lst = new;
+	new->next = *lst;
+	lst = new;
 }
