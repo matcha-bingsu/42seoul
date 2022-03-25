@@ -6,14 +6,11 @@
 /*   By: chaeyhan <chaeyhan@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 15:51:07 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/11 16:01:28 by chaeyhan         ###   ########.fr       */
+/*   Updated: 2022/03/25 18:50:06 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 255)
-		return (1);
-	else
-		return (0);
+	return (c >= 0 && c <= 127);
 }
