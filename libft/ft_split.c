@@ -6,25 +6,28 @@
 /*   By: chaeyhan <chaeyhan@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:46:59 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/25 17:27:59 by chaeyhan         ###   ########.fr       */
-/*                                                                            */
+/*   Updated: 2022/03/28 00:21:18 by chaeyhan         ###   ########.fr       */
+/*                                           i                                 */
 /* ************************************************************************** */
 #include "libft.h"
 
 static int	get_len(char const *s, char c)
 {
 	int		i;
-	char const	*start;
 
 	i = 0;
-	start = s;
 	while (*s)
 	{
-		if (*s == c && s != start)
+		if (*s != c)
+		{
 			i++;
-		s++;
+			while (*s && *s != c)
+				s++;
+		}
+		else
+			s++;
 	}
-	return (i + 1);
+	return (i);
 }
 
 static char	**ft_free(char **re)
