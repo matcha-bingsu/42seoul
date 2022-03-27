@@ -24,7 +24,10 @@ void	ft_putnbr_fd(int n, int fd)
 		n *= -1;
 	}
 	if (n > 9)
+	{
 		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}	
 	else
-		write(fd, &"0123456789"[n % 10], 1);
+		ft_putchar_fd(n + '0', fd);
 }
