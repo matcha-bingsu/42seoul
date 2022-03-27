@@ -6,7 +6,7 @@
 /*   By: chaeyhan <chaeyhan@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:28:34 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/25 18:45:00 by chaeyhan         ###   ########.fr       */
+/*   Updated: 2022/03/26 22:52:04 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strdup(const char *string);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 size_t	ft_strlcpy(char * dest, const char * src, size_t size);
 size_t	ft_strlen(const char *s);
-int 	strncmp(const char* str1, const char* str2, size_t len);
+int	ft_strncmp(const char* str1, const char* str2, size_t len);
 char    *ft_strnstr(const char *haystack, const char *needle, size_t len);
 char    *ft_strrchr(const char *s, int c);
 int 	ft_tolower(int ch);
