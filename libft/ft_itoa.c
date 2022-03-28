@@ -13,7 +13,7 @@
 
 static int	get_len(int n)
 {
-	int	len;
+	int		len;
 	long	nb;
 
 	len = 0;
@@ -33,7 +33,7 @@ static int	get_len(int n)
 
 char	*ft_itoa(int n)
 {
-	int	i;
+	int		i;
 	long	nb;
 	char	*re;
 

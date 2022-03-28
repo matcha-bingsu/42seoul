@@ -13,7 +13,7 @@
 
 char	*ft_strdup(const char *string)
 {
-	int	len;
+	int		len;
 	char	*re;
 
 	len = ft_strlen(string);
@@ -26,4 +26,3 @@ char	*ft_strdup(const char *string)
 	re[len] = '\0';
 	return (re);
 }
-

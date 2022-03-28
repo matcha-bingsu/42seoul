@@ -7,7 +7,7 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:46:59 by chaeyhan          #+#    #+#             */
 /*   Updated: 2022/03/28 00:21:18 by chaeyhan         ###   ########.fr       */
-/*                                           i                                 */
+/*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
@@ -51,9 +51,9 @@ static void	ft_assign(const char *from, const char *s, char *re)
 	re[i] = 0;
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	int		index;
+	int			index;
 	char		**re;
 	const char	*from;
 

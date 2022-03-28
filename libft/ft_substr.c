@@ -6,7 +6,7 @@
 /*   By: chaeyhan <chaeyhan@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 20:03:20 by chaeyhan          #+#    #+#             */
-/*   Updated: 2022/03/28 00:03:22 by chaeyhan         ###   ########.fr       */
+/*   Updated: 2022/03/28 20:30:54 by chaeyhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -14,7 +14,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*re;
-	
+
 	re = 0;
 	if ((unsigned int)ft_strlen(s) < start)
 		return (ft_strdup(""));

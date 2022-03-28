@@ -10,7 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 # debug:
-# 	gcc -Wall -Wextra -Werror -g test.c libft.a
+# 	gcc -Wall -Wextra -Werror -g main.c libft.a
+
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -c
