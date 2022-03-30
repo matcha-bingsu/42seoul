@@ -33,9 +33,9 @@ int	ft_atoi(const char *nptr)
 	}
 	while (*nptr >= '0' && *nptr <= '9')
 		result = result * 10 + (*nptr++ - '0');
-	if (pulma > 0 && result > LONG_MAX)
+	if (pulma > 0 && result > LLONG_MAX)
 		return (-1);
-	else if (pulma < 0 && result > LONG_MAX)
+	else if (pulma < 0 && result > LLONG_MAX)
 		return (0);
 	else
 		return ((int)(pulma * result));
