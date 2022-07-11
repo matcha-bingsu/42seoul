@@ -47,24 +47,23 @@ char	*ft_strdup(const char *string)
 	return (re);
 }
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
 	size_t	src_len;
+	size_t	i;
 
-	i = 0;
 	src_len = 0;
-	while (src[src_len])
+	i = 0;
+	while(src[src_len] != '\0')
 		src_len++;
-	if (size > 0)
+	if (dstsize == 0)
+		return (src_len);
+	while (src[i] != '\0' && i < (dstsize - 1))
 	{
-		while (src[i] && i + 1 < size)
-		{	
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
+		dst[i] = src[i];
+		i++;
 	}
+	dst[i] = '\0';
 	return (src_len);
 }
 
