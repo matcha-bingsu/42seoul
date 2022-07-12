@@ -1,4 +1,16 @@
-#include "get_next_line_bonus.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chaeyhan <chaeyhan@student.42seoul.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/12 13:00:41 by chaeyhan          #+#    #+#             */
+/*   Updated: 2022/07/12 13:11:21 by chaeyhan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -44,7 +56,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 
 	src_len = 0;
 	i = 0;
-	while(src[src_len] != '\0')
+	while (src[src_len] != '\0')
 		src_len++;
 	if (dstsize == 0)
 		return (src_len);

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chaeyhan <chaeyhan@student.42seoul.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/12 13:00:01 by chaeyhan          #+#    #+#             */
+/*   Updated: 2022/07/12 13:07:33 by chaeyhan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 size_t	ft_strlen(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -29,6 +41,8 @@ static char	*extract(char **table)
 
 static char	*before_extract(char **table, int flag)
 {
+	char	*tmp;
+
 	if (flag == -1 || (flag == 0 && !**table))
 	{
 		free(*table);
@@ -37,38 +51,37 @@ static char	*before_extract(char **table, int flag)
 	}
 	if (!ft_strchr(*table, '\n') && **table)
 	{
-		char	*tmp;
 		tmp = ft_strdup(*table);
 		free(*table);
 		*table = 0;
 		return (tmp);
-	} 
+	}
 	if (ft_strchr(*table, '\n'))
 		return (extract(table));
 	return (0);
 }
 
-static char	*get_line(int fd, char *arr, char **table) 
+static char	*get_line(int fd, char *arr, char **table)
 {
 	int		flag;
 	char	*tmp;
 
-	if (ft_strchr(*table, '\n')) 
-		return(extract(table)); 
+	if (ft_strchr(*table, '\n'))
+		return (extract(table));
 	while (!ft_strchr(*table, '\n'))
 	{
 		flag = read(fd, arr, BUFFER_SIZE);
-		if (flag == -1 || flag == 0) 
-			break;
-		arr[flag] = '\0'; 
-		tmp = *table; 
-		*table = ft_strjoin(*table, arr); 
+		if (flag == -1 || flag == 0)
+			break ;
+		arr[flag] = '\0';
+		tmp = *table;
+		*table = ft_strjoin(*table, arr);
 		if (!(*table))
-			break;
+			break ;
 		free(tmp);
 		tmp = 0;
-	} 
-	return (before_extract(table, flag)); 
+	}
+	return (before_extract(table, flag));
 }
 
 char	*get_next_line(int fd)
@@ -76,15 +89,15 @@ char	*get_next_line(int fd)
 	static char	*table[OPEN_MAX + 1];
 	char		*arr;
 	char		*res;
-	
+
 	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE < 1)
 		return (0);
 	arr = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!arr)
-		return (0); 
+		return (0);
 	if (!table[fd])
-		table[fd] = ft_strdup(""); 
-	res = get_line(fd, arr, &table[fd]); 
+		table[fd] = ft_strdup("");
+	res = get_line(fd, arr, &table[fd]);
 	free(arr);
 	arr = 0;
 	return (res);
