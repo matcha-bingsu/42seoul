@@ -1,9 +1,13 @@
 #include "get_next_line.h"
 
-static void	free_mp(char **ptr)
+size_t	ft_strlen(const char *str)
 {
-	free(*ptr);
-	*ptr = 0;
+	int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 static char	*extract(char **table)
@@ -18,7 +22,8 @@ static char	*extract(char **table)
 	res = ft_substr(*table, 0, i + 1);
 	old = *table;
 	*table = ft_strdup(&(*table)[i + 1]);
-	free_mp(&old); 
+	free(old);
+	old = 0;
 	return (res);
 }
 
@@ -26,14 +31,16 @@ static char	*before_extract(char **table, int flag)
 {
 	if (flag == -1 || (flag == 0 && !**table))
 	{
-		free_mp(table);
+		free(*table);
+		*table = 0;
 		return (0);
 	}
 	if (!ft_strchr(*table, '\n') && **table)
 	{
 		char	*tmp;
 		tmp = ft_strdup(*table);
-		free_mp(table);
+		free(*table);
+		*table = 0;
 		return (tmp);
 	} 
 	if (ft_strchr(*table, '\n'))
@@ -58,7 +65,8 @@ static char	*get_line(int fd, char *arr, char **table)
 		*table = ft_strjoin(*table, arr); 
 		if (!(*table))
 			break;
-		free_mp(&tmp);
+		free(tmp);
+		tmp = 0;
 	} 
 	return (before_extract(table, flag)); 
 }
@@ -77,6 +85,7 @@ char	*get_next_line(int fd)
 	if (!table[fd])
 		table[fd] = ft_strdup(""); 
 	res = get_line(fd, arr, &table[fd]); 
-	free_mp(&arr);
+	free(arr);
+	arr = 0;
 	return (res);
 }
