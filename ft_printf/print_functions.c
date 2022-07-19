@@ -1,13 +1,14 @@
-#include <unistd.h>
+#include "ft_printf.h"
 
 int int_nbr(int n)
 {
+    int len = get_int_len(n);
 	if (n < 0)
 	{
 		if (n == -2147483648)
 		{
 			write(1, "-2147483648", 11);
-			return ;
+			return (11);
 		}
 		write(1, "-", 1);
 		n *= -1;
@@ -15,7 +16,7 @@ int int_nbr(int n)
 	if (n > 9)
 		int_nbr(n / 10);
 	write(1, &"0123456789"[n % 10], 1);
-    return (get_int_len(n));
+    return (len); // 음수일때 n *= -1을 하여 양수가 되기 떄문에 음수길이가 출력이 안됨
 }
 
 unsigned int    unsigned_nbr(unsigned int n)
@@ -31,9 +32,14 @@ int get_string(char* str)
     int count;
 
     count = 0;
+    if (!str)
+    {
+        write(1, "(null)", 6);
+        return (6);
+    }
     while (*str)
     {
-        write(1, str, 1);
+        write(1, str++, 1);
         count++;
     }
     return (count);
@@ -60,7 +66,7 @@ int pointer_nbr(unsigned long long ptr)
     for (int i = 0; i < cnt; i++)
         write(1, &"0123456789abcdef"[tmp[i]], 1);
     free(tmp);
-    return (cnt);
+    return (cnt + 2);
 }
 
 int hex_nbr(unsigned int n, char c)

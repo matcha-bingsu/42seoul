@@ -6,6 +6,8 @@ int get_int_len(int n)
     long    tmp;
     
     res = 0;
+    if (n == 0)
+        return (1);
     if (n < 0)
     {
         res++;
@@ -26,6 +28,8 @@ unsigned int    get_unsigned_len(unsigned int n)
     unsigned int    res;
 
     res = 0;
+    if (n == 0)
+        return (1);
     while (n > 0)
     {
         n /= 10;
@@ -45,7 +49,9 @@ int get_hex_len(unsigned long long n)
     int cnt;
 
     cnt = 0;
-    while (n >= 0)
+    if (n == 0)
+        return (1);
+    while (n > 0)
     {
         n /= 16;
         cnt++;

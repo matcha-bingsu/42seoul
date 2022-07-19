@@ -1,4 +1,4 @@
-#include "ft_print.h"
+#include "ft_printf.h"
 
 int    get_format(va_list *ap, char c)
 {
@@ -12,8 +12,10 @@ int    get_format(va_list *ap, char c)
         return(unsigned_nbr(va_arg(*ap, unsigned int)));
     else if (c == 'x' || c == 'X')
         return(hex_nbr(va_arg(*ap, unsigned int), c));
+    else if (c == 'c')
+        return (get_char(va_arg(*ap, int)));
     else
-        return (get_char(va_arg(*ap, char)));
+        return (get_char(c));
 }
 
 int    ft_printf(const char* str, ...)
@@ -24,13 +26,13 @@ int    ft_printf(const char* str, ...)
 
     ans = 0;
     va_start(ap, str);
-    while(str != '\0')
+    while(*str != '\0')
     {
-        if (str != '%')
+        if (*str != '%')
             ans += write(1, str, 1);
         else
         {
-            tmp = get_format(&ap, str++);
+            tmp = get_format(&ap, *(++str));
             if (tmp != -1)
                 ans += tmp;
             else
@@ -39,7 +41,5 @@ int    ft_printf(const char* str, ...)
         str++;
     }
     va_end(ap);
-    if (ans < 0)
-        return (-1);
     return (ans);
 }
